@@ -1,3 +1,73 @@
 @tailwind base;
 @tailwind components;
+@layer components {
+    /* clears the 'X' from Internet Explorer */
+    input[type="search"]::-ms-clear {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    input[type="search"]::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+  
+    /* clears the 'X' from Chrome */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+      display: none;
+    }
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      -webkit-text-fill-color: #7C2D0C;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    h1 {
+      @apply text-5xl font-sans font-black leading-none;
+    }
+    h2 {
+      @apply text-4xl font-sans font-black;
+    }
+    h3 {
+      @apply text-3xl font-sans font-bold;
+    }
+    h4 {
+      @apply text-2xl font-sans font-bold;
+    }
+    h5 {
+      @apply text-xl font-sans font-medium;
+    }
+    h6 {
+      @apply text-lg font-sans font-medium;
+    }
+    p {
+      @apply text-base font-sans font-normal;
+    }
+  }
 @tailwind utilities;
+@layer utilities {
+
+  body::-webkit-scrollbar {
+    width: 6px; /* width of the entire scrollbar */
+  }
+
+  body::-webkit-scrollbar-track {
+    background: #464645; /* color of the tracking area */
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: #FED7AA; /* color of the scroll thumb */
+    border-radius: 2px; /* roundness of the scroll thumb */
+    border: 2px solid #7C2D0C
+  }
+}

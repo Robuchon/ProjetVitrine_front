@@ -41,14 +41,37 @@ router.beforeEach(async (to, from) => {
 
   // si pas de donné de connection
   if (store.isLogin === "") {
-    //tester la connection avec le token dans les cookies
+    if (cookies.get("userSession") !== null) {
+      //tester la connection avec le token dans les cookies
+    } else {
+      //ici si pas de token dans le cookies
+      store.isLogin = false;
+    }
   }
 
   //si pas de connection
-  if (!store.isLogin) {}
+  if (!store.isLogin) {
+    if (to.matched.length === 0) {
+      //ici si pas de matched page
+      return { name: "NotFound" };
+    }
+    // verification des droits de la page
+    if (to.meta.permission !== "noLog") {
+      return { name: "Entrance" };
+    }
+  }
 
   // si connecté
-  if (store.isLogin) {}
-})
+  if (store.isLogin) {
+    if (to.matched.length === 0) {
+      //ici si pas de matched page
+      return { name: "NotFound" };
+    }
+    // verifiaction si les droits de la page sont accesible par le user
+    if (to.meta.permission === "noLog") {
+      return { name: "Hall" };
+    }
+  }
+});
 
 export default router;

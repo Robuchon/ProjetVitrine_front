@@ -8,20 +8,28 @@ const { cookies } = useCookies();
 let routes = [
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/entrance",
   },
   {
     path: "/waiting",
     name: "Waiting",
-    component: () => import("@components/page/Waiting.vue"),
+    component: () => import("@components/pages/WaitingPage.vue"),
+  },
+  {
+    path: "/notFound",
+    name: "NotFound",
+    component: () => import("@components/pages/NotFoundPage.vue"),
+  },
+  {
+    path: "/hall",
+    name: "Hall",
+    component: () => import("@modules/hall/HallPage.vue"),
   },
 ];
 
 import routesAuth from "@router/routes/authRoute";
 
-routes = routes.concat(
-  routesAuth,
-);
+routes = routes.concat(routesAuth);
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

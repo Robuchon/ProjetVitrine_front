@@ -17,6 +17,9 @@ export default ({ mode }) => {
         "@axios": fileURLToPath(
           new URL("./src/plugins/axios", import.meta.url),
         ),
+        "@stores": fileURLToPath(
+          new URL("./src/plugins/stores", import.meta.url),
+        ),
         "@cookies": fileURLToPath(
           new URL("./src/plugins/cookies", import.meta.url),
         ),

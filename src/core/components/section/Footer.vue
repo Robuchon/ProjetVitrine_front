@@ -17,7 +17,9 @@
           ></SvgTarget>
         </a>
       </div>
-      <BtnToggle></BtnToggle>
+      <div class="mt-8 md:mt-0 flex justify-center">
+        <BtnToggle></BtnToggle>
+      </div>
       <div class="mt-8 md:order-1 md:mt-0">
         <p class="text-center" :class="storeUser.themeTxt()">
           &copy; 2020 Your Company, Inc. All rights reserved.
@@ -29,8 +31,8 @@
 
 <script setup>
 //import utilities
-import SvgTarget from "../utilities/SvgTarget.vue";
-import BtnToggle from "../utilities/BtnToggle.vue";
+import SvgTarget from "@components/utilities/SvgTarget.vue";
+import BtnToggle from "@components/utilities/BtnToggle.vue";
 //import store
 import useStoreUser from "@stores/user";
 const storeUser = useStoreUser();

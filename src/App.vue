@@ -21,10 +21,20 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
+import router from "@router";
+
 // import components
-import Footer from "./core/components/section/Footer.vue";
 import ProloguePage from "@modules/prologue/ProloguePage.vue";
+import Footer from "@components/section/Footer.vue";
+import NavBar from "@components/section/NavBar.vue";
+import WaitingPage from "@components/pages/WaitingPage.vue";
 //import store
 import useStoreUser from "@stores/user";
 const storeUser = useStoreUser();
+const layout = computed(() => {
+  let value = router.currentRoute.value.meta.layout;
+  console.log("layout", value);
+  return value;
+});
 </script>

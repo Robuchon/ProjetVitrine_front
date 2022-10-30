@@ -37,6 +37,10 @@ const Store = defineStore("user", {
         return "#7C2D0C";
       }
     },
+    //setter
+    setter(value, target) {
+      this[target] = value;
+    },
   },
 });
 

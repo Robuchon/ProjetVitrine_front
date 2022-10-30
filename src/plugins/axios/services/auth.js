@@ -23,10 +23,10 @@ class AuthServices {
       })
       .catch((e) => {
         console.log("error ", e);
-        return e;
+        return e.response;
       });
   }
-  
+
   static async signin(data) {
     let body = data;
     return Base.post(`/auth/signin`, body)
@@ -36,7 +36,19 @@ class AuthServices {
       })
       .catch((e) => {
         console.log("error ", e);
-        return e;
+        return e.response;
+      });
+  }
+
+  static async loginWithToken() {
+    return Base.get(`/auth/loginWithToken`)
+      .then((response) => {
+        console.log("auth : loginWithToken", response);
+        return response;
+      })
+      .catch((e) => {
+        console.log("error ", e);
+        return e.response;
       });
   }
 }

@@ -1,35 +1,43 @@
 <template>
   <div class="mx-auto my-20 flex flex-wrap justify-between">
-    <div class="my-auto flex w-1/2 flex-col items-center">
+    <div class="flex w-1/3 flex-col items-center">
       <h1
         class="mb-10 flex whitespace-pre text-center"
         :class="storeUser.themeTxt()"
       >
         {{ entranceTxt[storeUser.userData.language].titlePersonalPresentation }}
       </h1>
-      <img src="@assets/img/moi.png" alt="moi" class="w-[50%] rounded-full" />
+      <img src="@assets/img/moi.png" alt="moi" class="w-full rounded-full" />
     </div>
-    <div
-      class="relative my-auto h-[600px] w-[600px] overflow-hidden bg-parchemin"
-    >
+    <div name="parchemin" class="relative w-[800px] h-[850px]">
       <Transition
-        enter-active-class="transition ease-in-out transform duration-[1000ms]"
-        enter-from-class="translate-y-60 opacity-0"
-        enter-to-class="translate-y-0 opacity-100"
+        enter-active-class="transition ease-in-out transform delay-[1000ms] duration-[1000ms]"
+        enter-from-class="scale-y-0 opacity-0"
+        enter-to-class="scale-y-100 opacity-100"
         leave-active-class="transition ease-in-out transform duration-[1000ms]"
-        leave-from-class="translate-y-0 opacity-100"
-        leave-to-class="-translate-y-60 opacity-0"
+        leave-from-class="scale-y-100 opacity-100"
+        leave-to-class="scale-y-0 opacity-0"
       >
-        <h3
-          :key="index"
-          class="absolute left-[20%] right-[20%] mt-16 text-orange-900"
-        >
-          {{
-            entranceTxt[storeUser.userData.language].paraPersonalPresentation[
-              index
-            ]
-          }}
-        </h3>
+        <div :key="index" class="absolute left-0 top-0 right-0">
+          <img src="@assets/img/hautParchemin.png" alt="" class="relative w-full z-10" />
+          <div class="relative w-full">
+            <div class="absolute -top-20 left-[20%] right-[20%] -bottom-20">
+              <img
+                src="@assets/img/corpParchemin.png"
+                alt=""
+                class="w-full h-full z-0"
+              />
+            </div>
+            <h3 class="relative z-10 my-8 mx-[215px] text-orange-900">
+              {{
+                entranceTxt[storeUser.userData.language]
+                  .paraPersonalPresentation[index]
+              }}
+            </h3>
+          </div>
+
+          <img src="@assets/img/basParchemin.png" alt="" class="relative w-full z-10" />
+        </div>
       </Transition>
     </div>
   </div>
@@ -46,7 +54,7 @@ import { onMounted, ref, onUnmounted } from "vue";
 const storeUser = useStoreUser();
 const index = ref(0);
 const wPercent = ref(0);
-const interval = ref(Object)
+const interval = ref(Object);
 
 function increment() {
   console.log(
@@ -73,14 +81,14 @@ function clock() {
     }
   }, 80);
 }
-function stopClock () {
-  clearInterval(interval.value)
+function stopClock() {
+  clearInterval(interval.value);
 }
 
 onMounted(() => {
   clock();
 });
 onUnmounted(() => {
-  stopClock()
-})
+  stopClock();
+});
 </script>

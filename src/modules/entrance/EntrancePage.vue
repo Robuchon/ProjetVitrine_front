@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto flex w-[80%] flex-col">
+  <div class="mx-auto flex w-[80%] max-w-7xl flex-col">
     <div name="nav" class="flex justify-between">
       <button
         class="btn glass flex justify-center"
@@ -55,7 +55,7 @@ import SvgTarget from "@components/utilities/SvgTarget.vue";
 //import components
 import PersonalPresentation from "./PersonalPresentation.vue";
 import ProjectPresentation from "./ProjectPresentation.vue";
-import LogPage from "./logPage/LogPage.vue";
+import LogPage from "./LogPage.vue";
 //import data
 import entranceTxt from "@modules/entrance/dataTxt/entrance";
 //import store

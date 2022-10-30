@@ -1,5 +1,6 @@
 <template>
   <Switch
+    @click="switchTheme(enabled)"
     v-model="enabled"
     :class="[
       enabled
@@ -48,6 +49,7 @@ import { SunIcon, MoonIcon } from "@heroicons/vue/24/outline";
 import { Switch } from "@headlessui/vue";
 //import store
 import useStoreUser from "@stores/user";
+import UserSettings from "../../../plugins/axios/services/userSettings";
 const storeUser = useStoreUser();
 
 const enabled = ref(false);
@@ -57,6 +59,13 @@ function setEnabled() {
     enabled.value = false;
   } else {
     enabled.value = true;
+  }
+}
+function switchTheme(value) {
+  if (value === false) {
+    UserSettings.switchTheme({ theme: "dark" });
+  } else {
+    UserSettings.switchTheme({ theme: "light" });
   }
 }
 watch(

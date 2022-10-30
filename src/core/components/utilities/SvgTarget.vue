@@ -28,12 +28,20 @@
       v-if="target === 'Facebook'"
       :width="width"
       :color1="color1"
-      :height="height"></Facebook>
+      :height="height"
+    ></Facebook>
     <GitHub
       v-if="target === 'GitHub'"
       :width="width"
       :color1="color1"
-      :height="height"></GitHub>
+      :height="height"
+    ></GitHub>
+    <Forge
+      v-if="target === 'Forge'"
+      :width="width"
+      :color1="color1"
+      :height="height"
+    ></Forge>
   </div>
 </template>
 
@@ -44,8 +52,8 @@ import Chevron1 from "../../assets/svg/Chevron1.vue";
 import Twitter from "../../assets/svg/Twitter.vue";
 import Linkedin from "../../assets/svg/Linkedin.vue";
 import Facebook from "../../assets/svg/Facebook.vue";
-import Instagram from "../../assets/svg/Instagram.vue";
 import GitHub from "../../assets/svg/GitHub.vue";
+import Forge from "../../assets/svg/Forge.vue";
 
 const props = defineProps({
   target: {
